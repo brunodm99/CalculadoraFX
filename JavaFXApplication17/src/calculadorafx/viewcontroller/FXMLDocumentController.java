@@ -94,7 +94,8 @@ public class FXMLDocumentController implements Initializable {
         String s = txtResultado.getText() + btn.getText();
         
         //calc.cargarNumero(Double.parseDouble(btn.getText()));
-        calc.cargarNumero(Double.parseDouble(s));
+        //calc.cargarNumero(Double.parseDouble(s));
+        calc.cargarNumero(Double.parseDouble(btn.getText()));
         txtResultado.setText("" + calc.getResultado());
 
     }

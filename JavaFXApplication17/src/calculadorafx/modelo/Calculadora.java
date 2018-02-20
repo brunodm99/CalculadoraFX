@@ -19,7 +19,8 @@ public class Calculadora {
     }
 
     public void cargarNumero(double numero) {
-        //temp += numero;
+        //temp += ""+numero;
+        
         nums[i] = numero;
         res = numero;
         i++;
