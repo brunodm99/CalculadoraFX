@@ -3,6 +3,19 @@
     Author     : bruno
 */
 .root{
-    -fx-background-color: linear-gradient(from 0% 0% to 100% 200%, repeat, #F1EEEE 0%, #CAB7A0 50%);
+    -fx-background-color: #333333;
     -fx-padding: 0 7px 7px 7px;
+}
+
+.button{
+    -fx-text-fill: white;
+    -fx-background-color: #333333;
+}
+
+.button:hover{
+    -fx-text-fill: aqua;
+}
+
+.button:pressed{
+    -fx-text-fill: darkgoldenrod;
 }

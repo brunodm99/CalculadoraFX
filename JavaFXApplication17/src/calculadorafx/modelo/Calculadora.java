@@ -1,91 +1,98 @@
 package calculadorafx.modelo;
-
 /**
- *
- * @author bruno
+ * @author Bruno Díaz Martín
  */
 public class Calculadora {
-
-    private double[] nums;
-    private String temp = "";
+    private String operando1;
+    private String operando2;
     private String operador;
-    private double res;
-    private int i;
+    private double resultado;
+    private String ultimaOperacion;
 
-    public Calculadora() {
-        nums = new double[2];
-        res = 0;
-        i = 0;
+    public Calculadora(){
+        limpiar();
     }
 
-    public void cargarNumero(double numero) {
-        //temp += ""+numero;
-        
-        nums[i] = numero;
-        res = numero;
-        i++;
+    /**
+     * Carga un numero al operando
+     * @param numero El numero a cargar
+     */
+    public void cargarNumero(String numero){
+        if(this.operador.equals("")){
+            operando1 += numero;
+            resultado = Double.parseDouble(operando1);
+        }else{
+            operando2 += numero;
+            resultado = Double.parseDouble(operando2);
+        }
     }
 
-    public void operar(String operador) {
-        if (i == 2) {
-            switch (this.operador) {
-                case "+":
-                    res = nums[0] + nums[1];
-                    nums[0] = res;
-                    this.operador = operador;
-                    i--;
-                    break;
-                case "-":
-                    res = nums[0] - nums[1];
-                    nums[0] = res;
-                    this.operador = operador;
-                    i--;
-                    break;
-                case "*":
-                    res = nums[0] * nums[1];
-                    nums[0] = res;
-                    this.operador = operador;
-                    i--;
-                    break;
-                case "/":
-                    res = nums[0] / nums[1];
-                    nums[0] = res;
-                    this.operador = operador;
-                    i--;
-                    break;
+    private boolean hayOperacionPendiente(){
+        return !ultimaOperacion.equals("");
+    }
+
+    private boolean hay2operandos(){
+        return (!operando1.equals("") && !operando2.equals(""));
+    }
+
+    private void operaPendiente(){
+        switch(ultimaOperacion){
+            case "+":
+                resultado = Double.parseDouble(operando1) + Double.parseDouble(operando2);
+                operando1 = ""+resultado;
+                operando2 = "";
+                ultimaOperacion = "";
+                break;
+            case "-":
+                resultado = Double.parseDouble(operando1) - Double.parseDouble(operando2);
+                operando1 = ""+resultado;
+                operando2 = "";
+                ultimaOperacion = "";
+                break;
+            case "*":
+                resultado = Double.parseDouble(operando1) * Double.parseDouble(operando2);
+                operando1 = ""+resultado;
+                operando2 = "";
+                ultimaOperacion = "";
+                break;
+            case "/":
+                resultado = Double.parseDouble(operando1) / Double.parseDouble(operando2);
+                operando1 = ""+resultado;
+                operando2 = "";
+                ultimaOperacion = "";
+                break;
+        }
+    }
+
+    /**
+     * Opera si hace falta
+     * @param operador El operador
+     */
+    public void operar(String operador){
+        if(hay2operandos()){
+            if(hayOperacionPendiente()){
+                operaPendiente();
+                ultimaOperacion = operador;
             }
-        } else {
+        }else{
+            this.ultimaOperacion = operador;
             this.operador = operador;
         }
-
-        if (operador.equals("=")) {
-            switch (this.operador) {
-                case "+":
-                    res = nums[0] + nums[1];
-                    break;
-                case "-":
-                    res = nums[0] - nums[1];
-                    break;
-                case "*":
-                    res = nums[0] * nums[1];
-                    break;
-                case "/":
-                    res = nums[0] / nums[1];
-                    break;
-            }
-            limpiar();
-        }
     }
 
-    public double getResultado() {
-        return res;
-    }
-
-    public void limpiar() {
-        nums = new double[2];
+    /**
+     * limpia los datos en memoria
+     */
+    public final void limpiar(){
+        operando1 = "";
+        operando2 = "";
         operador = "";
-        i = 0;
-        temp="";
+        resultado = 0;
+        ultimaOperacion = "";
     }
 
+    public double getResultado(){
+        return resultado;
+    }
 }
+

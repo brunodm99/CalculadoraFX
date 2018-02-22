@@ -93,9 +93,7 @@ public class FXMLDocumentController implements Initializable {
         
         String s = txtResultado.getText() + btn.getText();
         
-        //calc.cargarNumero(Double.parseDouble(btn.getText()));
-        //calc.cargarNumero(Double.parseDouble(s));
-        calc.cargarNumero(Double.parseDouble(btn.getText()));
+        calc.cargarNumero(btn.getText());
         txtResultado.setText("" + calc.getResultado());
 
     }
@@ -110,7 +108,7 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void limpiar(ActionEvent event) {
         calc.limpiar();
-        txtResultado.setText("");
+        txtResultado.setText("0");
     }
 
     @Override
