@@ -8,6 +8,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -17,41 +18,6 @@ public class FXMLDocumentController implements Initializable {
 
     private Calculadora calc;
 
-//    @FXML
-//    TextField txtResultado;
-//    
-//    @FXML
-//    Button btn0, btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9;
-//    
-//    @FXML
-//    Button btnIgual, btnAC, btnDiv, btnPor, btnMenos, btnMas;
-//    
-//    @FXML
-//    private void operando(MouseEvent evt){
-//        Button btn = (Button)evt.getSource();
-//        double operando = Double.parseDouble(btn.getText());
-//        calc.cargarNumero(operando);
-//        txtResultado.setText(String.valueOf(calc.getResultado()));
-//    }
-//    
-//    @FXML
-//    private void operador(MouseEvent evt){
-//        Button btn = (Button)evt.getSource();
-//        String op = btn.getText();
-//        calc.operar(op);
-//        txtResultado.setText(String.valueOf(calc.getResultado()));
-//    }
-//    
-//    @FXML
-//    private void limpiar(MouseEvent evt){
-//        calc.limpiar();
-//        txtResultado.setText(String.valueOf(calc.getResultado()));
-//    }
-//    
-//    @Override
-//    public void initialize(URL url, ResourceBundle rb) {
-//        calc = new Calculadora();
-//    }    
     @FXML
     private TextField txtResultado;
     @FXML
@@ -86,16 +52,24 @@ public class FXMLDocumentController implements Initializable {
     private Button btnIgual;
     @FXML
     private Button btnDiv;
-    
+
     @FXML
     private void operando(ActionEvent event) {
         Button btn = (Button) event.getSource();
-        
-        String s = txtResultado.getText() + btn.getText();
-        
-        calc.cargarNumero(btn.getText());
-        txtResultado.setText("" + calc.getResultado());
 
+        String s = txtResultado.getText() + btn.getText();
+
+        try {
+            calc.cargarNumero(btn.getText());
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "No puedes introducir más de un punto.\nSe limpiará la memoria de la calculadora.", "Error", JOptionPane.ERROR_MESSAGE);
+            calc.limpiar();
+        }
+
+        if(btn.getText().equals("0"))
+            txtResultado.setText(txtResultado.getText() + "0");
+        else
+            txtResultado.setText("" + calc.getResultado());
     }
 
     @FXML

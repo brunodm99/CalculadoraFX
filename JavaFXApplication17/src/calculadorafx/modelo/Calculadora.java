@@ -12,7 +12,7 @@ public class Calculadora {
     public Calculadora(){
         limpiar();
     }
-
+    
     /**
      * Carga un numero al operando
      * @param numero El numero a cargar
