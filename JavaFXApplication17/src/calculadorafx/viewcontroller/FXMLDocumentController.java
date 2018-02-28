@@ -60,11 +60,12 @@ public class FXMLDocumentController implements Initializable {
         String s = txtResultado.getText() + btn.getText();
 
         try {
-            calc.cargarNumero(btn.getText());
+        calc.cargarNumero(btn.getText());
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "No puedes introducir más de un punto.\nSe limpiará la memoria de la calculadora.", "Error", JOptionPane.ERROR_MESSAGE);
             calc.limpiar();
         }
+        
 
         if(btn.getText().equals("0"))
             txtResultado.setText(txtResultado.getText() + "0");

@@ -28,6 +28,7 @@ public class CalculadoraFX extends Application {
         
         Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("Calculadora FX");
+        stage.setResizable(false);
         stage.setScene(scene);
         stage.show();
     }

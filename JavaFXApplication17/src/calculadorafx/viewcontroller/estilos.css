@@ -19,3 +19,7 @@
 .button:pressed{
     -fx-text-fill: darkgoldenrod;
 }
+
+#btnMenos{
+    -fx-font-size: 35;
+}
