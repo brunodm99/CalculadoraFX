@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox id="AnchorPane" prefHeight="432.0" prefWidth="319.0" stylesheets="@estilos2.css" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="calculadorafx.viewcontroller.FXMLDocumentController">
+<VBox id="AnchorPane" prefHeight="432.0" prefWidth="319.0" stylesheets="@estilos2.css" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="calculadorafx.viewcontroller.Controlador">
    <children>
       <MenuBar prefHeight="25.0" prefWidth="318.0">
         <menus>

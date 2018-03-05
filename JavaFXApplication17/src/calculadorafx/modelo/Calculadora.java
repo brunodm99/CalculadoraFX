@@ -91,6 +91,10 @@ public class Calculadora {
         ultimaOperacion = "";
     }
 
+    /**
+     * Devuelve el esultado de la operación
+     * @return El resultado de la operación
+     */
     public double getResultado(){
         return resultado;
     }

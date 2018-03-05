@@ -14,7 +14,7 @@ import javax.swing.JOptionPane;
  *
  * @author bruno
  */
-public class FXMLDocumentController implements Initializable {
+public class Controlador implements Initializable {
 
     private Calculadora calc;
 

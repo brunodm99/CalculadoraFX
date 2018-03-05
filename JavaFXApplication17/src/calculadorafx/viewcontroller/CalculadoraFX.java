@@ -1,9 +1,7 @@
 package calculadorafx.viewcontroller;
 
-import java.io.IOException;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
@@ -24,7 +22,7 @@ public class CalculadoraFX extends Application {
         
             
         FXMLLoader fxmlLoader = new FXMLLoader();
-        fxmlLoader.setLocation(getClass().getResource("FXMLDocument.fxml"));
+        fxmlLoader.setLocation(getClass().getResource("Vista.fxml"));
         
         Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("Calculadora FX");
